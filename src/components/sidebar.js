@@ -1,60 +1,77 @@
 import React from "react";
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import CategoryIcon from '@mui/icons-material/Category';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import SubtitlesIcon from '@mui/icons-material/Subtitles';
 import { makeStyles } from "@mui/styles"
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     sideBar: {
         color: "white",
         height: "100vh",
-        backgroundColor: theme.palette.primary.main
+        backgroundColor: theme.palette.primary.main,
+        padding: "80px 0px 0px 0px"
     },
     icon: {
         color: "white"
+    },
+    link: {
+        color: "white",
+        textDecoration: "none"
     }
 }));
 
 let items = [
     {
         name: "categories",
-        icon: CategoryIcon
+        icon: CategoryIcon,
+        link: "/categories"
     },
     {
         name: "subcategories",
-        icon: SubtitlesIcon
+        icon: SubtitlesIcon,
+        link: "/subcategories"
     },
     {
         name: "products",
-        icon: CheckroomIcon
+        icon: CheckroomIcon,
+        link: "/products"
     },
     {
         name: "inventory",
-        icon: InventoryIcon
+        icon: InventoryIcon,
+        link: "/inventory"
     },
     {
         name: "offers",
-        icon: LocalOfferIcon
+        icon: LocalOfferIcon,
+        link: "/offers"
     }
+
 ]
 export default function Sidebar() {
 
     const classes = useStyles();
     return (
-        <List className={classes.sideBar}>
-            {items.map((item, index) => (
-                <ListItem key={item.name} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <item.icon className={classes.icon} />
-                        </ListItemIcon>
-                        <ListItemText primary={item.name} />
-                    </ListItemButton>
-                </ListItem>
-            ))}
-        </List>
+        <Box className={classes.sideBar} position="fixed">
+            <List>
+                {items.map((item, index) => (
+                    <Link to={item.link} className={classes.link} key={item.name}>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <item.icon className={classes.icon} />
+                                </ListItemIcon>
+                                <ListItemText primary={item.name} />
+                            </ListItemButton>
+                        </ListItem>
+                    </Link>
+
+                ))}
+            </List>
+        </Box>
     )
 }

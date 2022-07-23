@@ -1,11 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { Cookies, useCookies } from "react-cookie";
 
 export const login = createAsyncThunk(
     "auth/login",
     async (data, thunkApi) => {
         let { rejectWithValue } = thunkApi;
-        console.log(data)
+
         try {
             let sendLogin = await fetch(
                 `${process.env.REACT_APP_APIURL}/auth/login`,
@@ -24,7 +23,6 @@ export const login = createAsyncThunk(
             localStorage.setItem("token", loginResult.token)
             return loginResult.token;
         } catch (error) {
-            console.log(error)
             return rejectWithValue(error.message);
         }
     }

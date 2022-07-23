@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
@@ -17,13 +17,15 @@ export default function Layout({ children }) {
     return token ?
         <>
             <NavBar openSideBar={openSideBar} />
-            <Grid container spacing={3} direction="row">
+            <Grid container spacing={3} direction="row" justifyContent={!sideBarMode ? "center" : "start"} >
                 {sideBarMode && <Grid item md={3}>
                     <Sidebar />
                 </Grid>}
 
-                <Grid item md={sideBarMode === true ? 9 : 12} >
-                    <Outlet />
+                <Grid item md={sideBarMode === true ? 9 : 10}>
+                    <Box paddingTop="100px">
+                        <Outlet />
+                    </Box>
                 </Grid>
             </Grid>
 

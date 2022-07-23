@@ -8,6 +8,10 @@ import { makeStyles } from '@mui/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Box } from "@mui/material";
 import Dashboard from "./views/dashboard";
+import Categories from "./views/categories";
+import EditCategory from "./views/categories/edit";
+import CreateCategory from "./views/categories/create";
+import Category from "./views/categories/category";
 
 const theme = createTheme();
 
@@ -22,7 +26,12 @@ function App() {
             <Route path="/*" element={<Layout />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="products" element={<div>products</div>} />
-              <Route path="categories" element={<div>categories</div>} />
+              <Route path="categories/*">
+                <Route index element={<Categories />} />
+                <Route path="create" element={<CreateCategory />} />
+                <Route path=":id" element={<Category />} />
+                <Route path=":id/edit" element={<EditCategory />} />
+              </Route>
             </Route>
           </Routes>
         </BrowserRouter>
