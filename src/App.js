@@ -12,7 +12,10 @@ import Categories from "./views/categories";
 import EditCategory from "./views/categories/edit";
 import CreateCategory from "./views/categories/create";
 import Category from "./views/categories/category";
-
+import Products from "./views/products";
+import CreateProduct from "./views/products/create";
+import Product from "./views/products/product";
+import EditProduct from "./views/products/edit";
 const theme = createTheme();
 
 
@@ -32,6 +35,14 @@ function App() {
                 <Route path=":id" element={<Category />} />
                 <Route path=":id/edit" element={<EditCategory />} />
               </Route>
+              <Route path="products/*">
+                <Route index element={< Products />} />
+                <Route path="create" element={< CreateProduct />} />
+                <Route path=":id" element={< Product />} />
+                <Route path=":id/edit" element={< EditProduct />} />
+              </Route>
+              <Route path="404" element={<>404</>} />
+              <Route path="505" element={<>505</>} />
             </Route>
           </Routes>
         </BrowserRouter>

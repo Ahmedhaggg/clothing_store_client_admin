@@ -10,22 +10,22 @@ export default function Layout({ children }) {
     let { token } = useSelector(state => state.auth);
     let [sideBarMode, toogleSideBar] = React.useState(true);
     const openSideBar = () => {
-        console.log("sideBarMode")
         toogleSideBar(!sideBarMode)
     };
 
     return token ?
         <>
             <NavBar openSideBar={openSideBar} />
-            <Grid container spacing={3} direction="row" justifyContent={!sideBarMode ? "center" : "start"} >
+            <Grid container direction="row" justifyContent={!sideBarMode ? "center" : "start"} >
                 {sideBarMode && <Grid item md={3}>
                     <Sidebar />
                 </Grid>}
 
                 <Grid item md={sideBarMode === true ? 9 : 10}>
-                    <Box paddingTop="100px">
+
+                    <Grid item paddingTop="100px" xs={10} margin="0px auto" >
                         <Outlet />
-                    </Box>
+                    </Grid>
                 </Grid>
             </Grid>
 

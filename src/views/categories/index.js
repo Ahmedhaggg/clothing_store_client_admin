@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCategories } from "../../store/categories";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box, Button, IconButton } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box } from '@mui/material';
 import { makeStyles } from "@mui/styles";
 import PageHeader from "../../components/pageHeader";
-import AddIcon from '@mui/icons-material/Add';
+import CustomIconLinkButton from "../../components/customIconLinkButton";
 
 let useStyles = makeStyles((theme) => ({
     link: {
@@ -69,25 +69,7 @@ export default function Categories() {
                     </Box>
                 )
             }
-            <IconButton variant='contained'
-                sx={{ position: "fixed", width: "50px", height: "50px", fontSize: "25px", bottom: "5%", right: 0, zIndex: 2000, bgcolor: "primary.main", ":hover": { bgcolor: "primary.light" } }}>
-                <Link to="/categories/create">
-                    <AddIcon sx={{ color: "white", fontSize: "25px" }} />
-                </Link>
-            </IconButton>
-            {/* <Box bgcolor="red" width="40px" height="40px" position="absolute" top="0" right="0">
-                color
-            </Box>
-            <Box marginTop={4} textAlign="center" position="relative">
-                <Box bgcolor="red" width="40px" height="40px" position="absolute" top="0" right="0">
-                    color
-                </Box>
-                {/* <Button size="medium">
-                    <Link to="/categories/create" className="linkButton">
-                        add new category
-                    </Link>
-                </Button> */}
-            {/* </Box> * /} */}
+            <CustomIconLinkButton link="/categories/create" />
         </Box >
     );
 }
