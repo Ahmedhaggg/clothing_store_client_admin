@@ -16,7 +16,11 @@ import Products from "./views/products";
 import CreateProduct from "./views/products/create";
 import Product from "./views/products/product";
 import EditProduct from "./views/products/edit";
-const theme = createTheme();
+const theme = createTheme({
+  background: {
+    secondary: "#f3f3f4"
+  }
+});
 
 
 function App() {

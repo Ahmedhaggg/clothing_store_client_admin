@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Grid, TextField, Button, InputAdornment, MenuItem, Select, InputLabel, FormControl, Alert, Box, Typography } from "@mui/material";
-import { addColor, deleteColor } from "../../store/newProduct"
+import { addColor, deleteColor } from "../../store/newProductDetailSlice"
 import { useDispatch, useSelector } from "react-redux";
 
 

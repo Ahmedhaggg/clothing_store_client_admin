@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Alert, Button, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Controller, useForm } from 'react-hook-form';
-import { login } from "../store/auth";
+import { login } from "../store/authSlice";
 import { Navigate } from "react-router-dom";
 
 export default function Login() {

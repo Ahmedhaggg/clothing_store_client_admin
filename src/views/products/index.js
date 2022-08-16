@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useGetAllProductsQuery } from "../../store/apiSlice";
+import React from "react";
+import { useGetAllProductsQuery } from "../../store/productSlice";
 import { Navigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';

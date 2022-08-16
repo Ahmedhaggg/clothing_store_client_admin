@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 export const categorySlice = createApi({
     reducerPath: "categoriesSlice",
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:2000/api/admin/" }),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API_URL }),
     endpoints: (builder) => ({
         getAllCategories: builder.query({
             query: () => {

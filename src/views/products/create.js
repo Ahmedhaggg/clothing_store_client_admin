@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useCreateProductMutation } from "../../store/apiSlice";
+import { useCreateProductMutation } from "../../store/productSlice";
 import { TextField, Button, Box, FormControl, Select, MenuItem, InputLabel, Alert } from "@mui/material"
 import PageHeader from "../../components/pageHeader";
 import { Controller, useForm } from 'react-hook-form';
@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import CustomPopup from "../../components/customPopup";
 import { useSelector } from "react-redux";
-import { useGetAllCategoriesQuery, useGetCategoryByIdQuery } from "../../store/categoriesSlice";
+import { useGetAllCategoriesQuery, useGetCategoryByIdQuery } from "../../store/categorySlice";
 import { skipToken } from '@reduxjs/toolkit/query'
 import ProductDetailsHandler from "../../components/addProduct/productDetails";
 import { Navigate } from "react-router-dom";

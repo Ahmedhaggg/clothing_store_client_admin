@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-import authReducer from "./auth";
+import authReducer from "./authSlice";
 import categoryReducer from "./categories";
-import { productSlice } from "./apiSlice"
-import { categorySlice } from "./categoriesSlice";
-import newProductDetailsReducer from "./newProduct"
+import { productSlice } from "./productSlice"
+import { categorySlice } from "./categorySlice";
+import newProductDetailsReducer from "./newProductDetailSlice"
 
 const Store = configureStore({
 
