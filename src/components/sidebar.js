@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     link: {
         color: "white",
         textDecoration: "none"
+    },
+    list: {
+        width: "100%"
     }
 }));
 
@@ -56,7 +59,7 @@ export default function Sidebar() {
 
     const classes = useStyles();
     return (
-        <Box className={classes.sideBar} position="fixed">
+        <Box className={classes.sideBar} position="fixed" width={320} >
             <List>
                 {items.map((item, index) => (
                     <Link to={item.link} className={classes.link} key={item.name}>

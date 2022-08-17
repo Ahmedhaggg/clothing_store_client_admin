@@ -17,6 +17,7 @@ export default function CreateCategory() {
     }, [])
 
     let submitHandler = (data) => {
+        console.log(data)
         dispatch(resetCategoryIsAdded())
         dispatch(resetCreateCategoryError())
         dispatch(createCategory(data));
